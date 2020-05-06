@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import logo from '../assets/img/logo.png';
+import SwitchLanguage from './Language';
+import Translate from './Translate';
 
 class NavBar extends Component {
     constructor(props) {
@@ -36,10 +39,13 @@ class NavBar extends Component {
                 color: this.state.isScrolled ? "white" : "white",
             }}>
                 <div className="logo">
-                    <div >We've got your back</div>
+                    <img src={logo} alt="logo" height="50px"/>
                 </div>
                 <div className="links">
-                    <button>CV</button>
+                    <a href="#about"><Translate id="about"/></a>
+                    <a href="#exp"><Translate id="exp"/></a>
+                    <a href="#project"><Translate id="project"/></a>
+                    <SwitchLanguage/>
                 </div>
 
             </div>

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 class Pulse extends Component {
     
-
-
     render() {
 
         return (

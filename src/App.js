@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Provider } from "react-redux";
 import './App.css';
-import NavBar from './components/Navbar';
 import Pulse from './components/Pulse';
+import store from "./reducers/store";
+import Main from "./components/Main";
 
 class App extends Component {
   state = {
@@ -14,27 +16,23 @@ class App extends Component {
   }
 
   demoAsyncCall() {
-    return new Promise((resolve) => setTimeout(() => resolve(), 5500));
+    return new Promise((resolve) => setTimeout(() => resolve(), 5300));
   }
 
   render() {
 
     const { loading } = this.state;
-    
-    if(loading) { // if your component doesn't have to wait for an async action, remove this block 
+
+    if (loading) { // if your component doesn't have to wait for an async action, remove this block 
       return (
         <Pulse />
       );
     }
 
     return (
-      <div>
-        <NavBar />
-        <div className="header">
-          <div className="title">Bonjour, je m'appelle <span style={{fontWeight: "bold"}}>Océane</span>.</div>
-          <p>Etudiante en software engineering.</p>
-        </div>
-      </div>
+      <Provider store={store}>
+        <Main/>
+      </Provider>
     );
   }
 }
